@@ -1,0 +1,286 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1e1e2f;
+  color: #ffffff;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Layout */
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr 3fr 0fr;
+  height: 100vh;
+}
+
+.sidebar, .right-sidebar {
+  background-color: #24243a;
+  padding: 20px;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  transition: margin-left 0.5s ease;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  color: #fff;
+  flex-shrink: 0;
+  transition: transform 0.5s ease;
+}
+
+.sidebar.hidden {
+  transform: translateX(-100%);
+}
+
+.sidebar .logo {
+  font-size: 24px;
+  color: #8b5cf6;
+  margin-bottom: 20px;
+}
+
+.menu, .social, .general {
+  margin-bottom: 30px;
+}
+
+.menu-item {
+  display: block;
+  color: #ccc;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.menu-item:hover {
+  color: #ffffff;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.tabs .tab {
+  color: #ccc;
+  margin-right: 15px;
+  text-decoration: none;
+}
+
+.tab.active {
+  color: #ffffff;
+  border-bottom: 2px solid #8b5cf6;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+}
+
+.settings-btn {
+  background: none;
+  border: none;
+  color: #ccc;
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background-color: #8b5cf6;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+}
+
+.profile-menu {
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px 15px;
+  display: none;
+  z-index: 1001;
+}
+
+.profile-menu.active {
+  display: block;
+}
+
+.profile-menu a {
+  display: block;
+  padding: 10px 0;
+  color: #333;
+  text-decoration: none;
+}
+
+.profile-menu a:hover {
+  background-color: #f5f5f5;
+}
+
+/* Toggle Button */
+.toggle-btn {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  padding: 10px 15px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* Movie Sections */
+.section-title {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.movie-slider, .movie-grid {
+  display: flex;
+  gap: 15px;
+}
+
+.movie-card-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+.movie-card {
+  background-color: #2d2d4d;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 300px;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.movie-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+.movie-card-info {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.movie-card-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.movie-card-genre {
+  font-size: 14px;
+  color: #aaa;
+  margin: 0;
+}
+
+.movie-card-btn {
+  padding: 10px;
+  background: #e50914;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background 0.3s;
+}
+
+.movie-card-btn:hover {
+  background: #b00710;
+}
+
+/* Right Sidebar */
+.search input {
+  width: 70%;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+}
+
+.search button {
+  padding: 5px 10px;
+  margin-left: 5px;
+  background-color: #8b5cf6;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.filter {
+  margin: 20px 0;
+}
+
+.filter-btn {
+  display: block;
+  background-color: #2d2d4d;
+  border: none;
+  color: #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.popular-card {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.popular-card img {
+  width: 100px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .movie-grid, .movie-slider {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .movie-card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
