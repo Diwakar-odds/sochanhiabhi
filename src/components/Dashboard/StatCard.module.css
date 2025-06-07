@@ -1,0 +1,44 @@
+/* frontend/src/components/Dashboard/StatCard.module.css */
+.statCard {
+    /* Base styles are from global .dashboard-card */
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Align icon to top right */
+    margin-bottom: 10px;
+}
+
+.title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.iconWrapper {
+    color: var(--text-secondary);
+}
+
+.count {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+}
+
+.description {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+    flex-grow: 1; /* Pushes button to the bottom if card height varies */
+}
+
+.cardButton {
+    align-self: flex-start; /* Aligns button to the left */
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+}

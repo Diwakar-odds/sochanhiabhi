@@ -1,0 +1,49 @@
+/* frontend/src/components/Dashboard/QuickActionCard.module.css */
+.quickActionCard {
+    background-color: var(--card-bg); /* Or a very light shade like #F9FBFD */
+    border: 1px solid #e9ecef; /* Subtle border */
+    border-radius: 6px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.quickActionCard:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+}
+
+.iconWrapper {
+    margin-right: 15px;
+    color: var(--primary-green-button); /* Use button green for icons */
+    font-size: 1.2rem; /* Make icon a bit smaller here */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Optional: if you want a background for the icon
+    background-color: #e8f5e9;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    */
+}
+
+.textWrapper {
+    flex-grow: 1;
+}
+
+.title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin: 0 0 4px 0;
+}
+
+.description {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.4;
+}

@@ -1,0 +1,22 @@
+/* frontend/src/components/Layout/Topbar.module.css */
+.topbar {
+    background-color: var(--topbar-bg);
+    height: 40px;
+    position: fixed;
+    top: 0;
+    /* Start after the collapsed sidebar */
+    left: 70px; /* Width of collapsed sidebar */
+    right: 0; /* Stretch to the right edge */
+    z-index: 1020;
+    transition: left 0.3s ease-in-out; /* Transition left position */
+}
+
+/*
+  If you implement a "pinned open" state that adds a class to a parent container
+  (e.g., on .mainArea if sidebar is pinned open via MainLayout state):
+*/
+/*
+:global(.mainAreaSidebarPinnedOpen) .topbar {
+    left: 260px; // Width of expanded sidebar
+}
+*/

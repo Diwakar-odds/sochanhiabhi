@@ -1,0 +1,239 @@
+/* frontend/src/components/Layout/Sidebar.module.css */
+.sidebar {
+    background-color: var(--sidebar-bg);
+    color: var(--text-light);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 1030;
+    transition: width 0.25s ease-in-out; /* Smooth transition */
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+.sidebarClosed {
+    width: 68px; /* Width when collapsed (icon only) */
+}
+.sidebarClosed .navLink,
+.sidebarClosed .logoutButton {
+    justify-content: center; /* Center icon */
+}
+.sidebarClosed .navIcon {
+    margin-right: 0; /* No margin when text is hidden */
+}
+.sidebarOpen {
+    width: 260px; /* Width when expanded */
+}
+
+/* Header for Logo and Toggle Button */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px 15px 18px; /* Fine-tune padding */
+    height: 60px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    flex-shrink: 0;
+}
+
+.logoLink {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-light);
+    overflow: hidden; /* Important for hiding text when collapsed */
+}
+
+.logoIcon {
+    color: #b2dfdb; /* Lighter teal/green for leaf */
+    margin-right: 10px; /* Space between icon and text */
+    flex-shrink: 0; /* Prevent icon from shrinking */
+    transition: font-size 0.2s ease;
+}
+
+.logoText {
+    font-size: 1.4rem; /* Slightly smaller */
+    font-weight: 600;
+    white-space: nowrap; /* Prevent text wrapping */
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out 0.05s, max-width 0.25s ease-in-out;
+    overflow: hidden
+}
+
+.sidebarOpen .logoText {
+    opacity: 1;
+}
+.logoTextHidden {
+    opacity: 0;
+    max-width: 0; /* Collapse width */
+    pointer-events: none; /* Prevent interaction */
+}
+.logoTextVisible {
+    opacity: 1;
+    max-width: 150px; /* Or enough to fit "EcoSwapHub" */
+}
+
+.toggleButton {
+    background: transparent;
+    border: none;
+    color: var(--text-light);
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+    flex-shrink: 0; /* Prevent button from shrinking */
+}
+.toggleButton:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.sidebarClosed .header {
+    padding: 15px 10px; /* Reduce padding slightly */
+    justify-content: center; /* Center content (logo icon and toggle) */
+}
+.sidebarClosed .logoLink {
+    margin-right: auto; /* Push logo to left if toggle moves */
+}
+.sidebarClosed .toggleButton { /* Center toggle button when sidebar is closed */
+    margin-left: auto;
+    margin-right: auto;
+}
+.sidebarOpen .header { /* Ensure toggle button is at the end when open */
+    justify-content: space-between;
+}
+
+
+.toggleButton:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+
+/* Navigation */
+.navigation {
+    flex-grow: 1;
+    overflow-y: auto; /* Scroll for nav items if they exceed height */
+    overflow-x: hidden;
+    padding-top: 10px;
+}
+
+.navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navLink {
+    display: flex;
+    align-items: center;
+    padding: 0 20px; /* Padding for expanded state */
+    height: 46px;   /* Slightly less height for nav items */
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.9rem; /* Slightly smaller nav text */
+    transition: background-color 0.2s ease, color 0.2s ease;
+    white-space: nowrap;
+    overflow: hidden; /* Crucial for hiding text */
+}
+.sidebarClosed .navLink {
+    padding: 0; /* No padding when closed, icon will be centered by justify-content */
+}
+.navLink:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navLink.active {
+    background-color: var(--active-nav-bg);
+    color: #fff;
+    font-weight: 500; /* Slightly less bold */
+}
+
+.navIcon {
+    margin-right: 14px; /* Space for expanded state */
+    font-size: 1.1rem;
+    min-width: 24px;
+    flex-shrink: 0;
+    text-align: center;
+    transition: margin 0.25s ease-in-out;
+}
+
+
+.navText {
+    font-weight: 400;
+    transition: opacity 0.2s ease-in-out 0.05s, max-width 0.25s ease-in-out;
+    overflow: hidden;
+}
+.navTextHidden { opacity: 0; max-width: 0; pointer-events: none; }
+.navTextVisible { opacity: 1; max-width: 150px; /* Adjust as needed */ }
+
+.sidebarOpen .navText { /* Show text when sidebar is open */
+    opacity: 1;
+}
+
+/* User Info Section */
+.userInfo {
+    padding: 10px 18px 15px 18px; /* Adjust padding */
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.userDetails { /* Container for name and email to control their visibility */
+    opacity: 0;
+    max-height: 0; /* Collapse when hidden */
+    transition: opacity 0.2s ease-in-out 0.1s, max-height 0.3s ease;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+.sidebarOpen .userDetails {
+    opacity: 1;
+    max-height: 100px; /* Or enough height to show content */
+}
+
+
+.userName {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.userEmail {
+    font-size: 0.75rem;
+    color: #b0c7b0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.logoutButton {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 46px; /* Match navLink height */
+    background: transparent;
+    border: none;
+    color: var(--text-light);
+    text-align: left;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 0 20px; /* Match navLink padding when open */
+}
+.sidebarClosed .logoutButton { /* Center icon when closed */
+    justify-content: center;
+    padding-left: 0;
+}
+
+.sidebarClosed .logoutButton .navIcon {
+    margin-right: 0;
+}
+
+
+.logoutButton:hover { background-color: rgba(255, 255, 255, 0.07); }

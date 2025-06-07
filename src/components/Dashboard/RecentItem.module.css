@@ -1,0 +1,37 @@
+/* frontend/src/components/Dashboard/RecentItem.module.css */
+.recentItem {
+    display: flex;
+    align-items: center;
+    padding: 10px 0; /* Vertical padding, no horizontal as parent handles it */
+    border-bottom: 1px solid #e9ecef; /* Separator line */
+}
+
+.recentItem:last-child {
+    border-bottom: none;
+}
+
+.itemImage {
+    width: 40px; /* Smaller image */
+    height: 40px;
+    border-radius: 4px;
+    object-fit: cover;
+    margin-right: 15px;
+    background-color: #e0e0e0; /* Placeholder bg */
+}
+
+.itemDetails {
+    flex-grow: 1;
+}
+
+.itemTitle {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin: 0 0 3px 0;
+}
+
+.itemCategory {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin: 0;
+}

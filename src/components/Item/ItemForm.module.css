@@ -1,0 +1,59 @@
+/* frontend/src/components/Item/ItemForm.module.css */
+.itemForm {
+    /* Uses .form-group from global App.css for individual field containers */
+}
+
+/* Ensure textarea and select elements inherit global form input styling if not already covered */
+.itemForm textarea,
+.itemForm select {
+    width: 100%; /* Make sure it takes full width of its form-group */
+    padding: 10px 12px;
+    border: 1px solid #ccc; /* Match global input style */
+    border-radius: 6px; /* Match global input style */
+    font-size: 1rem; /* Match global input style */
+    box-sizing: border-box;
+    font-family: var(--font-family-sans-serif); /* Ensure consistent font */
+    background-color: #fff; /* Ensure background color for select */
+    color: var(--text-dark); /* Ensure text color for select */
+}
+
+.itemForm textarea:focus,
+.itemForm select:focus {
+    outline: none;
+    border-color: var(--primary-green-button);
+    box-shadow: 0 0 0 2px rgba(74, 119, 60, 0.2); /* Use variable or specific color */
+}
+
+.itemForm textarea {
+    resize: vertical;
+    min-height: 100px; /* Increased min-height */
+}
+
+.formRow {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens if needed */
+    gap: 20px;
+}
+
+.formRow > .form-group {
+    flex: 1;
+    min-width: 200px; /* Prevent fields from becoming too narrow before wrapping */
+}
+
+.formText { /* Style for helper text below inputs */
+    display: block;
+    margin-top: 5px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* Responsive behavior for form row for very small screens if not already handled by flex-wrap */
+@media (max-width: 500px) { /* Adjust breakpoint as needed */
+    .formRow {
+        flex-direction: column;
+        gap: 0; /* Margin-bottom on form-group will handle spacing */
+    }
+    .formRow > .form-group {
+        min-width: 100%; /* Full width when stacked */
+    }
+}

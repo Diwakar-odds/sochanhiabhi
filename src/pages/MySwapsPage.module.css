@@ -1,0 +1,244 @@
+/* frontend/src/pages/MySwapsPage.module.css */
+
+/* Using global .container and .dashboard-card (from App.css) where appropriate */
+/* Using global .btn, .btn-primary-green, .btn-secondary-outline (from App.css) */
+
+.mySwapsPage {
+    /* Page specific layout if needed beyond .container */
+}
+
+/* Tabs Styling */
+.tabs {
+    display: flex;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #e2e8f0; /* Tailwind's gray-200 */
+}
+
+.tabButton {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-secondary); /* text-gray-600 */
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px; /* Align with parent border */
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.tabButton:hover {
+    color: var(--primary-green-button); /* Your primary green */
+}
+
+.tabButton.activeTab {
+    color: var(--primary-green-button);
+    border-bottom-color: var(--primary-green-button);
+    font-weight: 600;
+}
+
+.tabContent {
+    /* Container for the list of proposals or empty state */
+}
+
+.proposalsList {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr; /* Single column for now, could be responsive */
+}
+
+/* SwapProposalCard Styles */
+.card {
+    /* Base styles from .dashboard-card in App.css */
+    /* Add specific overrides if needed */
+    border: 1px solid #e2e8f0; /* Light border */
+}
+.errorCard {
+    background-color: #fee2e2; /* bg-red-100 */
+    color: #b91c1c; /* text-red-700 */
+    padding: 20px;
+    text-align: center;
+}
+
+
+.cardHeader {
+    padding-bottom: 12px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e2e8f0; /* Light border */
+}
+
+.cardTitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+}
+
+.headerMeta {
+    display: flex;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.dateText {
+    margin-left: 5px;
+}
+
+/* Badge Styles (can be replaced by shadcn/ui Badge) */
+.badge {
+    padding: 3px 8px;
+    border-radius: 12px; /* pill shape */
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: white;
+}
+.badgePending { background-color: #fbbf24; /* bg-amber-400 */ }
+.badgeAccepted { background-color: #34d399; /* bg-emerald-400 */ }
+.badgeDeclined { background-color: #f87171; /* bg-red-400 */ }
+
+
+.cardContent {
+    /* padding is already on .dashboard-card */
+}
+
+.itemsComparison {
+    display: flex;
+    align-items: center;
+    justify-content: space-around; /* Or space-between */
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.itemSection {
+    flex: 1;
+    min-width: 0; /* Allow flex items to shrink */
+}
+
+.offerLabel {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.swapIcon {
+    font-size: 1.8rem;
+    color: var(--primary-green-button); /* Or text-gray-400 */
+    flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+/* ItemDisplay Styles */
+.itemDisplayLink {
+    text-decoration: none;
+    color: inherit;
+    display: block; /* So it takes up space and is clickable */
+}
+.itemDisplayLink:hover .itemTitle { /* Example hover effect */
+    color: var(--primary-green-button);
+}
+
+.itemDisplay {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    background-color: #f9fafb; /* bg-gray-50 */
+    border-radius: 6px;
+    border: 1px solid #f3f4f6; /* bg-gray-100 */
+}
+
+.itemImage {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.itemInfo {
+    min-width: 0; /* Allow text to truncate */
+}
+
+.itemTitle {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0 0 2px 0;
+}
+
+.itemOwner {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.messageSection {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f9fafb; /* bg-gray-50 */
+    border-radius: 6px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.messageIcon {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: 3px; /* Align with text */
+    flex-shrink: 0;
+}
+
+.messageText {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    font-style: italic;
+    line-height: 1.5;
+}
+
+.cardFooter {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #e2e8f0; /* Light border */
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 10px;
+}
+
+.buttonIcon {
+    margin-right: 6px;
+}
+
+.footerNote {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+/* Empty State Styles */
+.emptyStateCard {
+    /* Uses .dashboard-card from App.css */
+    padding: 40px 20px; /* More padding for empty state */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px; /* Ensure it has some height */
+}
+
+.emptyStateIcon {
+    font-size: 3rem; /* text-5xl */
+    color: var(--text-secondary); /* text-gray-400 */
+    margin-bottom: 15px;
+}
+
+/* Ensure .ml-2 from button is effective or add specific style */
+.btn-primary-green.ml-2 {
+    margin-left: 0.5rem; /* Tailwind's ml-2 */
+}

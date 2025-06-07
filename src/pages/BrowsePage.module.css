@@ -1,0 +1,53 @@
+/* frontend/src/pages/BrowsePage.module.css */
+.pageContainer {
+    max-width: 1200px; /* Wider container for grid display */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.pageTitle {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: var(--text-dark);
+}
+
+.loadingMessage,
+.noItemsMessage {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    padding: 40px 0;
+}
+
+.errorMessage { /* Uses global .alert styles but allows for specific margin/positioning */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.itemsGrid {
+    display: grid;
+    /* Responsive grid: min 280px width, max 1fr (fills available space) */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px; /* Gap between cards */
+}
+
+/* Styles for filters container (when added) */
+.filtersContainer {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 600px) {
+    .itemsGrid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Slightly smaller min width */
+        gap: 20px;
+    }
+    .pageTitle {
+        font-size: 1.8rem;
+    }
+}

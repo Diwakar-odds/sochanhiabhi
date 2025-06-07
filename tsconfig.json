@@ -1,0 +1,33 @@
+// frontend/tsconfig.tson
+{
+  "compilerOptions": {
+    "target": "ESNext", // Or "ES2020", "ES2021", etc.
+    "useDefineForClassFields": true,
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler", // Or "node" if "bundler" causes issues with older setups
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true, // Vite handles the emitting of JS files
+    "jsx": "react-jsx", // Use "react-jsx" for automatic JSX runtime
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* Path Aliases for shadcn/ui and cleaner imports */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["src", ".vitepress/**/*", "vite.config.ts"], // Include your source files and Vite config if it's TS
+  "references": [{ "path": "./tsconfig.node.json" }] // Common for Vite projects
+}

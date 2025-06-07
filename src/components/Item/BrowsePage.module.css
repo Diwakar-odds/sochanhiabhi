@@ -1,0 +1,88 @@
+/* frontend/src/pages/BrowsePage.module.css */
+.browsePageContainer {
+    max-width: 1200px; /* Allow wider content for item grid */
+    margin: 0 auto;
+    padding: 15px;
+}
+
+.pageTitle {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    color: var(--text-dark);
+}
+
+.controlsContainer {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: var(--card-bg); /* Light background for controls */
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.searchBarPlaceholder,
+.filtersPlaceholder {
+    display: flex;
+    gap: 10px; /* Space between filter elements */
+    margin-bottom: 10px; /* Spacing when wrapped */
+}
+
+.searchInput,
+.filterSelect {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    min-width: 180px; /* Minimum width for inputs/selects */
+}
+
+.searchInput {
+    flex-grow: 1; /* Allow search input to take more space if available */
+    max-width: 400px;
+}
+
+.filterSelect {
+    /* Specific styles for select if needed */
+}
+
+.loadingState,
+.noItemsState,
+.errorState {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+.errorState {
+    margin: 20px auto; /* Center alert */
+    max-width: 600px;
+}
+
+.itemsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Responsive grid for item cards */
+    gap: 20px; /* Space between item cards */
+}
+
+/* Responsive adjustments for controls */
+@media (max-width: 768px) {
+    .controlsContainer {
+        flex-direction: column;
+        align-items: stretch; /* Make controls take full width when stacked */
+    }
+    .searchBarPlaceholder,
+    .filtersPlaceholder {
+        width: 100%;
+        flex-direction: column; /* Stack filter selects on small screens */
+    }
+    .searchInput,
+    .filterSelect {
+        width: 100%;
+        max-width: none;
+    }
+}

@@ -1,0 +1,232 @@
+/* frontend/src/App.css or frontend/src/styles/global.css */
+:root {
+    /* Warm Green Palette & Layout Colors */
+    --sidebar-bg: #2E4C38;                     /* Deep Forest Green for Sidebar */
+    --topbar-bg: #343A40;                      /* Dark Grey for Topbar */
+    --active-nav-bg: #4A773C;                 /* Brighter Green for Active Nav/Buttons */
+    --primary-green-button: #4A773C;          /* Main Green for Buttons */
+    --primary-green-button-hover: #3e6530;    /* Darker shade for button hover */
+
+    --main-bg: #F4F6F8;                        /* Light Grey/Off-white for main content area */
+    --card-bg: #FFFFFF;                        /* White for cards/widgets */
+
+    /* Text Colors */
+    --text-light: #F0F0F0;                     /* Very light grey/white for text on dark backgrounds */
+    --text-dark: #333333;                      /* Primary dark grey for text on light backgrounds */
+    --text-secondary: #6c757d;                 /* Lighter grey for secondary text */
+    --text-on-primary-green: #FFFFFF;          /* White text for primary green buttons */
+
+    /* Specific Component Colors from Design */
+    --ai-card-bg: var(--sidebar-bg);           /* AI Card uses sidebar green */
+    --ai-card-text: var(--text-light);
+    --ai-card-button-bg: #FFFFFF;
+    --ai-card-button-text: var(--primary-green-button); /* Green text on white button */
+    --ai-card-button-hover-bg: #f0f0f0;
+
+    /* Font */
+    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+}
+
+/* Basic Reset & Body Styles */
+body {
+    margin: 0;
+    font-family: var(--font-family-sans-serif);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--main-bg);
+    color: var(--text-dark);
+    line-height: 1.6;
+    font-size: 16px; /* Base font size */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-dark); /* Default heading color */
+    margin-top: 0;
+    margin-bottom: 0.75em;
+    font-weight: 600; /* Slightly bolder headings */
+}
+
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.8rem; } /* For "Welcome, User!" */
+h3 { font-size: 1.3rem; } /* For Section Titles like "Quick Actions" */
+h4 { font-size: 1.1rem; } /* For Card Titles */
+h5 { font-size: 1rem; }   /* For Quick Action Card Titles */
+h6 { font-size: 0.95rem; }/* For Recent Item Titles */
+
+
+/* Links */
+a {
+    color: var(--primary-green-button); /* Use the primary green for links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* General Card Styling (can be base for dashboard widgets) */
+.dashboard-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0,0,0,0.03); /* Softer shadow */
+    margin-bottom: 20px; /* Default spacing, can be overridden by grid gap */
+}
+
+/* General Button Styling */
+.btn {
+    display: inline-block;
+    font-weight: 500; /* Adjusted from 600 for a slightly softer look */
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.5rem 1rem; /* Standard padding */
+    font-size: 0.95rem;  /* Standard button font size */
+    line-height: 1.5;
+    border-radius: 6px; /* Slightly more rounded */
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+/* Primary Green Button (e.g., "View My Items") */
+.btn-primary-green {
+    color: var(--text-on-primary-green);
+    background-color: var(--primary-green-button);
+    border-color: var(--primary-green-button);
+}
+.btn-primary-green:hover {
+    color: var(--text-on-primary-green);
+    background-color: var(--primary-green-button-hover);
+    border-color: var(--primary-green-button-hover);
+}
+
+/* Secondary Outline Button (e.g., "View History (Soon)") */
+.btn-secondary-outline {
+    color: var(--text-secondary);
+    border-color: #ced4da; /* Light grey border */
+    background-color: transparent;
+}
+.btn-secondary-outline:hover {
+    color: var(--text-dark);
+    background-color: #e9ecef; /* Light grey background on hover */
+    border-color: #dee2e6;
+}
+
+/* Button for AI Card ("Get Suggestions") */
+.btn-light-on-dark { /* Renamed for clarity, was btn-light-text-green */
+    color: var(--ai-card-button-text);
+    background-color: var(--ai-card-button-bg);
+    border-color: var(--ai-card-button-bg);
+    font-weight: 600; /* Make this button text bolder */
+}
+.btn-light-on-dark:hover {
+    background-color: var(--ai-card-button-hover-bg);
+    border-color: var(--ai-card-button-hover-bg);
+}
+
+
+/* Form container and elements (if still used for Login/Register outside dashboard) */
+/* These are from previous steps, review if they are still needed globally or should be component-specific */
+.form-container {
+    max-width: 500px;
+    margin: 60px auto; /* Increased top margin */
+    padding: 30px;
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 100%; /* Simpler width calculation */
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Important for width: 100% */
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-green-button);
+    box-shadow: 0 0 0 2px rgba(74, 119, 60, 0.2); /* Adjusted shadow color */
+}
+
+.btn-block { /* For form submit buttons */
+    width: 100%;
+    display: block;
+    padding: 0.6rem 1rem; /* Slightly larger padding for main action buttons */
+}
+
+/* Alert Styles (for form errors/success messages) */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.alert-danger {
+    color: #842029;
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+}
+
+.alert-success {
+    color: #0f5132;
+    background-color: #d1e7dd;
+    border-color: #badbcc;
+}
+
+/* Remove old .app-container and .main-content if they were specifically for the previous top-nav layout */
+/* The new MainLayout.module.css handles the main app structure with sidebar */
+
+/* Utility class for visually hidden text (accessibility) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.fade-in {
+  animation: fadeInAnimation 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeInAnimation {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

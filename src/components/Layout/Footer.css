@@ -1,0 +1,30 @@
+/* frontend/src/components/Layout/Footer.module.css (or Footer.css) */
+.footer {
+    background-color: var(--sidebar-bg); /* Using the same deep green as the sidebar */
+    padding: 25px 0; /* Slightly more padding */
+    text-align: center;
+    color: var(--text-light); /* Light text for contrast */
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle top border */
+}
+
+.footerContainer { /* Assuming you have a container div inside footer */
+    max-width: 1200px; /* Consistent with other containers */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footerContainer a {
+    color: hsl(var(--primary)); /* Use shadcn/ui primary color for links, or a light accent */
+    /* Or a custom light green/accent: color: #A9D0A9; */
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: 500; /* Slightly bolder links */
+    transition: color 0.2s ease;
+}
+
+.footerContainer a:hover {
+    color: hsl(var(--primary) / 0.8); /* Slightly dimmed primary on hover */
+    /* Or a brighter version of your custom accent */
+    text-decoration: underline;
+}

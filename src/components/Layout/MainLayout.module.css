@@ -1,0 +1,31 @@
+/* frontend/src/components/Layout/MainLayout.module.css */
+.appFrame {
+    display: flex;
+    min-height: 100vh; /* Ensures layout takes full viewport height */
+}
+
+.mainArea {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: 260px; /* Same as sidebar width */
+    background-color: var(--main-bg);
+    
+    margin-left: 70px; /* Width of the collapsed sidebar */
+    transition: margin-left 0.3s ease-in-out; /* Smooth transition for margin */
+
+
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-top: 40px; /* Same as topbar height */
+    overflow-y: auto; /* Allow content to scroll if it exceeds viewport */
+}
+
+/* In MainLayout.module.css */
+.mainAreaSidebarOpen {
+    margin-left: 260px; /* Width of the open sidebar */
+}
+
